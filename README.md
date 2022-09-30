@@ -1,4 +1,3 @@
-d## PrismOS
 This repo is testing for a new prism os version based on Nifanfa's BootTo.Net project.
 
 <hr/>
