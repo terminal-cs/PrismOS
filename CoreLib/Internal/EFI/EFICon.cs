@@ -89,7 +89,7 @@ namespace Internal.EFI
         ScanF10 = 0x0014,
         ScanF11 = 0x0015,
         ScanF12 = 0x0016,
-        ScanEsc = 0x0017
+        ScanEsc = 0x0017,
     }
 
 

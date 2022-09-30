@@ -86,5 +86,18 @@ namespace System
 
             return s;
         }
+
+        public unsafe char[] ToCharArray()
+		{
+            char[] Array = new char[Length];
+            fixed (char* PTR1 = &_firstChar)
+			{
+                fixed(char* PTR2 = Array)
+				{
+                    MemoryOperations.Copy(PTR2, PTR1, (ulong)Length * sizeof(char));
+                }
+			}
+            return Array;
+		}
     }
 }

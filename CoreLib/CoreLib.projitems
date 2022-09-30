@@ -68,6 +68,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\SByte.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Single.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\String.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Text\Encoding\UTF8.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\UInt16.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\UInt32.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\UInt64.cs" />

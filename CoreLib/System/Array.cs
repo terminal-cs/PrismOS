@@ -1,4 +1,4 @@
-﻿// Licensed to the .NET Foundation under one or more agreements.
+﻿// Licensed to the .NET sFoundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
 using System.Runtime.InteropServices;
@@ -11,10 +11,11 @@ namespace System
 
     public partial class Array
     {
-        // CS0649: Field '{blah}' is never assigned to, and will always have its default value
+
+		// CS0649: Field '{blah}' is never assigned to, and will always have its default value
 #pragma warning disable 649
-        // This field should be the first field in Array as the runtime/compilers depend on it
-        internal int _numComponents;
+		// This field should be the first field in Array as the runtime/compilers depend on it
+		internal int _numComponents;
 #pragma warning restore
 
         public int Length
@@ -32,7 +33,7 @@ namespace System
     // are now required to provide an Array<T> class that derives from Array.
     internal class Array<T> : Array
     {
-    }
+	}
 
     [StructLayout(LayoutKind.Sequential)]
     internal class RawArrayData

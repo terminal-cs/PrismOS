@@ -24,13 +24,25 @@ namespace System.Net.Sockets
             }
         }
 
+        public void Connect(byte[] Address, ushort port)
+		{
+            EfiIPv4Address A = new();
+            A.Addr[0] = Address[0];
+            A.Addr[1] = Address[1];
+            A.Addr[2] = Address[2];
+            A.Addr[3] = Address[3];
+            Connect(A, port);
+		}
+
         public void Connect(EfiIPv4Address address, ushort port)
         {
             EfiStatus sts = EfiStatus.EfiSuccess;
 
-            configuration = new EfiTcpConfigData();
-            configuration.TimeToLive = 188;
-            configuration.AccessPoint.UseDefaultAddress = true;
+			configuration = new EfiTcpConfigData
+			{
+				TimeToLive = 188
+			};
+			configuration.AccessPoint.UseDefaultAddress = true;
 
             configuration.AccessPoint.ActiveFlag = true;
             configuration.AccessPoint.RemotePort = port;
