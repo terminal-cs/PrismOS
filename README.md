@@ -4,5 +4,10 @@ This repo is testing for a new prism os version based on Nifanfa's BootTo.Net pr
 <hr/>
 
 ### supported Features
-- [x] MemoryOperations
-- [x] Power Functions
+- Console
+  - [x] WriteLine
+  - [x] Write
+  - [x] ReadLine
+- core
+  - [x] MemoryOperations
+  - [x] Power Functions
