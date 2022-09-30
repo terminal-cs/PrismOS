@@ -1,5 +1,4 @@
 global using static EFI;
-using PrismOS.Core;
 using System;
 
 namespace PrismOS
@@ -13,7 +12,6 @@ namespace PrismOS
         public static void Main()
         {
             Console.WriteLine("Hello, World!");
-            Power.Restart();
 			while (true) { }
         }
     }

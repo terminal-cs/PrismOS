@@ -53,7 +53,7 @@ public static unsafe class EFI
         //Disable watchdog timer
         GBS->SetWatchdogTimer(0, 0, 0, null);
         Console.Clear();
-        ConsoleApp1.Program.Main();
+        PrismOS.Program.Main();
 
         return EfiStatus.EfiSuccess;
     }

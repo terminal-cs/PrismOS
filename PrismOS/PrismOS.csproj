@@ -11,10 +11,12 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
 
-    <IlcSystemModule>ConsoleApp1</IlcSystemModule>
+    <IlcSystemModule>PrismOS</IlcSystemModule>
     <EntryPointSymbol>EfiMain</EntryPointSymbol>
 
     <LinkerSubsystem>EFI_APPLICATION</LinkerSubsystem>
+
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <Target Name="HandleBuild" AfterTargets="AfterBuild" Condition="'$(BuildingInsideVisualStudio)' == 'true'">
@@ -22,11 +24,18 @@
   </Target>
 
   <Target Name="CopyEFI" AfterTargets="Publish">
-	  <Copy SourceFiles="$(MSBuildProjectDirectory)\$(NativeOutputPath)$(TargetName)$(NativeBinaryExt)" DestinationFiles="$(MSBuildProjectDirectory)\..\Disk\EFI\BOOT\BOOTX64.efi"></Copy>
+	  <Copy SourceFiles="$(MSBuildProjectDirectory)\$(NativeOutputPath)$(TargetName)$(NativeBinaryExt)" DestinationFiles="$(MSBuildProjectDirectory)\..\CoreLib\Disk\EFI\BOOT\BOOTX64.efi"></Copy>
   </Target>
 
   <ItemGroup>
     <Content Include="Properties\launchSettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

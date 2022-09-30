@@ -9,4 +9,4 @@ if not exist "C:\Program Files\qemu\qemu-system-x86_64.exe" (
 	pause
 	exit
 )
-"C:\Program Files\qemu\qemu-system-x86_64.exe" -accel hax -m 1024 -smp 2 -k en-gb -boot d -d guest_errors -serial stdio -device AC97 -rtc base=localtime -bios ..\OVMF.fd -drive file=fat:rw:..\Disk -net nic,model=rtl8139 -net tap,ifname=tap
+"C:\Program Files\qemu\qemu-system-x86_64.exe" -accel hax -m 1024 -smp 2 -k en-gb -boot d -d guest_errors -serial stdio -device AC97 -rtc base=localtime -bios ..\CoreLib\Disk\OVMF.fd -drive file=fat:rw:..\CoreLib\Disk -net nic,model=rtl8139 -net tap,ifname=tap

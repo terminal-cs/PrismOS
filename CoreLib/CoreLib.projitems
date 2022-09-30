@@ -75,4 +75,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\ValueType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Void.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Disk\" />
+  </ItemGroup>
 </Project>
