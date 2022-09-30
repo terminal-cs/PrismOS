@@ -7,6 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrismOS", "PrismOS\PrismOS.
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CoreLib", "CoreLib\CoreLib.shproj", "{09702D3B-0A10-4653-9C75-12989E41B246}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5794AF2D-C05D-4C34-A910-97BC9B4E3631}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		CoreLib\CoreLib.projitems*{09702d3b-0a10-4653-9c75-12989e41b246}*SharedItemsImports = 13

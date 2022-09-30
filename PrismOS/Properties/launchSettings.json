@@ -2,14 +2,14 @@
   "profiles": {
     "Run Windows": {
       "commandName": "Executable",
-      "executablePath": "C:\\Program Files\\qemu\\qemu-system-x86_64.exe",
-      "commandLineArgs": "-accel hax -m 1024 -smp 2 -k en-gb -boot d -d guest_errors -serial stdio -device AC97 -rtc base=localtime -bios ..\\..\\..\\..\\CoreLib\\Disk\\OVMF.fd -drive file=fat:rw:..\\..\\..\\..\\CoreLib\\Disk -net nic,model=rtl8139 -net tap,ifname=tap",
+      "executablePath": "cmd.exe",
+      "commandLineArgs": "/c .\\Properties\\ExecuteWindows.bat",
       "workingDirectory": ".\\"
     },
     "Run Linux": {
       "commandName": "Executable",
-      "executablePath": "/bin/qemu-system-x86_64",
-      "commandLineArgs": "-accel kvm -m 1024 -smp 2 -k en-gb -boot d -d guest_errors -serial stdio -device AC97 -rtc base=localtime -bios ../../../../CoreLib/Disk/OVMF.fd -drive file=fat:rw:../../../../CoreLib/Disk -net nic,model=rtl8139",
+      "executablePath": "/bin/bash",
+      "commandLineArgs": "./Properties/ExecuteLinux.sh",
       "workingDirectory": "./"
     }
   }
