@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 
 using Internal.Runtime;
 using Internal.Runtime.CompilerServices;
+using Internal.EFI;
 
 namespace System
 {
@@ -106,7 +107,7 @@ namespace System
         public virtual void Dispose()
         {
             var obj = this;
-            GBS->FreePool((void*)Unsafe.As<object, IntPtr>(ref obj));
+            EFI.GBS->FreePool((void*)Unsafe.As<object, IntPtr>(ref obj));
         }
     }
 }

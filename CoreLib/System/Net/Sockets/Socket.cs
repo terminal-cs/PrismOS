@@ -1,4 +1,6 @@
 ﻿using System.Runtime.InteropServices;
+using static Internal.EFI.EFI;
+using Internal.EFI;
 
 namespace System.Net.Sockets
 {
@@ -37,7 +39,7 @@ namespace System.Net.Sockets
             ulong numdevices;
             EfiHandle* devices;
 
-            sts = GBS->LocateHandleBuffer(
+            sts = EFI.GBS->LocateHandleBuffer(
                 EfiLocateSearchType.ByProtocol,
                 EfiTcp4ServiceBindingProtocolGuid,
                 null,

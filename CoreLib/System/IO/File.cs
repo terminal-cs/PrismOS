@@ -1,4 +1,7 @@
-﻿namespace System.IO
+﻿using static Internal.EFI.EFI;
+using Internal.EFI;
+
+namespace System.IO
 {
     public static unsafe class File
     {
@@ -26,11 +29,11 @@
 
         public static void WriteAllBytes(string path, byte[] buffer)
         {
-            File.Delete(path);
+            Delete(path);
             EfiLoadedImageProtocol* loadedimage = null;
             EfiSimpleFileSystemProtocol* simplefilesystem = null;
-            GBS->HandleProtocol(gImageHandle, EfiLoadedImageProtocolGuid, (void**)&loadedimage);
-            GBS->HandleProtocol(loadedimage->DeviceHandle, EfiSimpleFileSystemProtocolGuid, (void**)&simplefilesystem);
+            EFI.GBS->HandleProtocol(gImageHandle, EfiLoadedImageProtocolGuid, (void**)&loadedimage);
+            EFI.GBS->HandleProtocol(loadedimage->DeviceHandle, EfiSimpleFileSystemProtocolGuid, (void**)&simplefilesystem);
             EfiFileHandle* vol = null;
             simplefilesystem->OpenVolume(simplefilesystem, &vol);
             EfiFileHandle* file = null;

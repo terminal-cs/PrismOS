@@ -1,4 +1,3 @@
-global using static EFI;
 using System;
 
 namespace PrismOS
@@ -11,6 +10,7 @@ namespace PrismOS
         //use GUID partition table first
         public static void Main()
         {
+
             Console.WriteLine("Hello, World!");
 			while (true) { }
         }

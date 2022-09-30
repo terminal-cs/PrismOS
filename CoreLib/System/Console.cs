@@ -1,10 +1,12 @@
-﻿namespace System
+﻿using Internal.EFI;
+
+namespace System
 {
     public static unsafe class Console
     {
         public static void Clear()
         {
-            GST->ConOut->ClearScreen(GST->ConOut);
+            EFI.GST->ConOut->ClearScreen(EFI.GST->ConOut);
         }
 
         public static void Write(char c)
@@ -12,14 +14,14 @@
             char* chr = stackalloc char[2];
             chr[0] = c;
             chr[1] = '\0';
-            GST->ConOut->OutputString(GST->ConOut, chr);
+            EFI.GST->ConOut->OutputString(EFI.GST->ConOut, chr);
         }
 
         public static void Write(string s)
         {
             fixed(char* ptr = s)
             {
-                GST->ConOut->OutputString(GST->ConOut, ptr);
+                EFI.GST->ConOut->OutputString(EFI.GST->ConOut, ptr);
             }
         }
 
@@ -35,16 +37,16 @@
             chr[0] = '\n';
             chr[1] = '\r';
             chr[2] = '\0';
-            GST->ConOut->OutputString(GST->ConOut, chr);
+            EFI.GST->ConOut->OutputString(EFI.GST->ConOut, chr);
         }
 
         public static EfiInputKey ReadKey()
         {
             EfiInputKey key;
             ulong keyEvent = 0;
-            GBS->WaitForEvent(1, &GST->ConIn->WaitForKey, &keyEvent);
-            GST->ConIn->ReadKeyStroke(GST->ConIn, &key);
-            GST->ConIn->Reset(GST->ConIn, false);
+            EFI.GBS->WaitForEvent(1, &EFI.GST->ConIn->WaitForKey, &keyEvent);
+            EFI.GST->ConIn->ReadKeyStroke(EFI.GST->ConIn, &key);
+            EFI.GST->ConIn->Reset(EFI.GST->ConIn, false);
             return key;
         }
     }

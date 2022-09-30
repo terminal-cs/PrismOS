@@ -1,4 +1,6 @@
-﻿namespace PrismOS.Core
+﻿using Internal.EFI;
+
+namespace PrismOS.Core
 {
 	public static unsafe class Power
 	{
@@ -7,14 +9,14 @@
 		/// </summary>
 		public static void Shutdown()
 		{
-			GST->RuntimeServices->ResetSystem(EfiResetType.EfiResetShutdown, 0, null);
+			EFI.GST->RuntimeServices->ResetSystem(EfiResetType.EfiResetShutdown, 0, null);
 		}
 		/// <summary>
 		/// Restart the system.
 		/// </summary>
 		public static void Restart()
 		{
-			GST->RuntimeServices->ResetSystem(EfiResetType.EfiResetCold, 0, null);
+			EFI.GST->RuntimeServices->ResetSystem(EfiResetType.EfiResetCold, 0, null);
 		}
 	}
 }

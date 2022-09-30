@@ -1,6 +1,8 @@
 ﻿using Internal.Runtime.CompilerServices;
 using System;
 using System.Runtime;
+using static Internal.EFI.EFI;
+using Internal.EFI;
 
 namespace Internal.Runtime.CompilerHelpers
 {

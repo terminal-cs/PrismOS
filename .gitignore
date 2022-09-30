@@ -17,7 +17,8 @@
 mono_crash.*
 
 # Extra EFI build files
-[Dd]isk/
+CoreLib/[Dd]isk/
+*.efi
 
 # Build results
 [Dd]ebug/
