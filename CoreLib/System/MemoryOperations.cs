@@ -48,13 +48,5 @@ namespace System
             EFI.GST->BootServices->CopyMem(Destination, Source, Size);
             //for (ulong i = 0; i < count; i++) dst[i] = src[i];
         }
-
-        public static void* Malloc(ulong Size)
-		{
-            fixed (byte* PTR = new byte[Size])
-			{
-                return PTR;
-			}
-        }
     }
 }

@@ -10,7 +10,8 @@ namespace PrismOS
         // use GUID partition table first
         public static void Main()
         {
-            Console.WriteLine("Hello, World!");
+            string T = "Hello, World!" + " Adding Working!";
+            Console.WriteLine(T);
             while (true) { }
         }
     }

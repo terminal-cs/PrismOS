@@ -5,3 +5,6 @@ dotnet_diagnostic.CS0660.severity = none
 
 # CS0661: Type defines operator == or operator != but does not override Object.GetHashCode()
 dotnet_diagnostic.CS0661.severity = none
+
+# CS0824: Constructor is marked external
+dotnet_diagnostic.CS0824.severity = none

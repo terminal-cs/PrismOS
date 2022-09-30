@@ -6,6 +6,11 @@ namespace System
 {
 	public unsafe sealed class String
 	{
+		public extern unsafe String(char* Pointer, int Index, int Length);
+		public extern unsafe String(IntPtr Pointer);
+		public extern unsafe String(char[] Buffer);
+		public extern unsafe String(char* Pointer);
+
 		/*
          * CONSTRUCTORS
          *
@@ -13,38 +18,37 @@ namespace System
          * to the managed code below and to the native VM code. See the comment at the top of
          * src/vm/ecall.cpp for instructions on how to add new overloads.
          */
-		public static unsafe string Ctor(char* ptr)
-		{
-			int i = 0;
-
-			while (ptr[i++] != '\0')
-			{ }
-
-			return Ctor(ptr, 0, i - 1);
-		}
-		public static unsafe string Ctor(IntPtr ptr)
-		{
-			return Ctor((char*)ptr);
-		}
-		public static unsafe string Ctor(char[] buf)
-		{
-			fixed (char* _buf = buf)
-			{
-				return Ctor(_buf, 0, buf.Length);
-			}
-		}
-		public static unsafe string Ctor(char* ptr, int index, int length)
+		public static unsafe string Ctor(char* Pointer, int Index, int Length)
 		{
 			EETypePtr et = EETypePtr.EETypePtrOf<string>();
 
-			char* start = ptr + index;
-			object data = StartupCodeHelpers.RhpNewArray(et._value, length);
+			char* start = Pointer + Index;
+			object data = StartupCodeHelpers.RhpNewArray(et._value, Length);
 			string s = Unsafe.As<object, string>(ref data);
 
-			MemoryOperations.Copy((byte*)s.FirstChar, (byte*)start, (ulong)length * sizeof(char));
-			s.FirstChar[length] = '\0';
+			MemoryOperations.Copy((byte*)s.FirstChar, (byte*)start, (ulong)Length * sizeof(char));
+			s.FirstChar[Length] = '\0';
 
 			return s;
+		}
+		public static unsafe string Ctor(IntPtr Pointer)
+		{
+			return Ctor((char*)Pointer);
+		}
+		public static unsafe string Ctor(char[] Buffer)
+		{
+			fixed (char* _buf = Buffer)
+			{
+				return Ctor(_buf, 0, Buffer.Length);
+			}
+		}
+		public static unsafe string Ctor(char* Pointer)
+		{
+			int i = 0;
+
+			while (Pointer[i++] != '\0') { }
+
+			return Ctor(Pointer, 0, i - 1);
 		}
 
 		public unsafe char this[long Index]
@@ -72,7 +76,7 @@ namespace System
 
 		public static string operator +(string S1, string S2)
 		{
-			char[] Buffer = new char[S1.Length + S2.Length];
+			char* Buffer = stackalloc char[S1.Length + S2.Length];
 			for (int I = 0; I < S1.Length; I++)
 			{
 				Buffer[I] = S1[I];
@@ -81,7 +85,7 @@ namespace System
 			{
 				Buffer[S1.Length + I] = S2[I];
 			}
-			return Ctor(Buffer);
+			return Ctor(Buffer, 0, S1.Length + S2.Length);
 		}
 		public static bool operator ==(string S1, string S2)
 		{
