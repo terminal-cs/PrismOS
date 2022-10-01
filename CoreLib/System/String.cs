@@ -145,9 +145,35 @@ namespace System
 			return false;
 		}
 
+		public static string Concat(string S1, string S2, string S3, string S4)
+		{
+			string P1 = S1 + S2;
+			string P2 = P1 + S3;
+			return P2 + S4;
+		}
+		public static string Concat(string S1, string S2, string S3)
+		{
+			string P1 = S1 + S2;
+			string P2 = P1 + S3;
+			return P2;
+		}
 		public static string Concat(string S1, string S2)
 		{
 			return S1 + S2;
+		}
+		public static string Concat(params string[] VS)
+		{
+			string S = "";
+			for (int I = 0; I < VS.Length; I++)
+			{
+				S += VS[I];
+			}
+			return S;
+		}
+
+		public string SubString(int StartIndex, int EndIndex)
+		{
+			return new(FirstChar, StartIndex, EndIndex - StartIndex);
 		}
 		public bool StartsWith(char C)
 		{
@@ -232,6 +258,11 @@ namespace System
 				};
 			}
 			return Ctor(T);
+		}
+
+		public override string ToString()
+		{
+			return this;
 		}
 
 		#endregion

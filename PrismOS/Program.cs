@@ -1,3 +1,4 @@
+using Internal.EFI;
 using System;
 
 namespace PrismOS

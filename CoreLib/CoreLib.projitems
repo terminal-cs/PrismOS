@@ -37,6 +37,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\EETypePtr.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Enum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\FlagsAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Index.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Int16.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Int32.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Int64.cs" />
@@ -49,6 +50,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\Net\Sockets\SocketType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Nullable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Object.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\ParamArrayAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Reflection\DefaultMemberAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\RuntimeFieldHandle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\RuntimeMethodHandle.cs" />
